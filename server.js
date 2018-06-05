@@ -47,12 +47,18 @@ app.get('/about', (req, res) => {
     });
 });
 
-// /bad - send back json with error message property
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to get url'
     })
 });
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        welcomeMessage: 'Here is a list of my projects',
+        pageTitle: 'My Projects'
+    });
+})
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
